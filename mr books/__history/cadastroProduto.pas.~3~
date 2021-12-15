@@ -1,0 +1,69 @@
+unit cadastroProduto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.Buttons;
+
+type
+  TfrmCadastroProduto = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    btn_cad: TBitBtn;
+    btn_save: TBitBtn;
+    btn_cancel: TBitBtn;
+    btn_change: TBitBtn;
+    btn_del: TBitBtn;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit9: TDBEdit;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnCadastrarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroProduto: TfrmCadastroProduto;
+
+implementation
+
+{$R *.dfm}
+
+uses conexao;
+
+procedure TfrmCadastroProduto.btnCadastrarClick(Sender: TObject);
+begin
+dmMrBooks.queryProduto.append;
+{form_cad_prod.btn_cad.Enabled:= false;
+form_cad_prod.btn_cancel.Enabled:= true;
+form_cad_prod.btn_change.Enabled:= false;
+form_cad_prod.btn_del.Enabled:= false;
+form_cad_prod.btn_save.Enabled:= true;}
+end;
+
+procedure TfrmCadastroProduto.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+Action:=caFree;
+frmCadastroProduto:=nil;
+end;
+
+end.
